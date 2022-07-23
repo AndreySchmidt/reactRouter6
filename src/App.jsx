@@ -1,20 +1,22 @@
-import { Routes, Rout, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import { HomePage } from './pages/HomePage'
 import { AboutPage } from './pages/AboutPage'
+import { BlogPage } from './pages/BlogPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { Layout } from './components/Layout'
 
 const App = (props) => {
   return (
     <>
-      <header>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-      </header>
-      <div><h1>Get started with React-Router 6</h1></div>
+      <Routes>
+        <Route path = "/" element = { <Layout /> }>
+          <Route index element = { <HomePage /> } />
+          <Route path = "about" element = { <AboutPage /> } />
+          <Route path = "blog" element = { <BlogPage /> } />
+          <Route path = "*" element = { <NotFoundPage /> } />
+        </Route>
+      </Routes>
     </>
   )
 }

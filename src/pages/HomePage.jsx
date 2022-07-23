@@ -1,7 +1,7 @@
 const HomePage = ( props ) => {
   return (
     <div>
-      AboutPage
+      <h1>Home Page</h1>
     </div>
   )
 }

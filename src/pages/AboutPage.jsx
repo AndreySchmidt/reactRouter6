@@ -1,7 +1,7 @@
 const AboutPage = ( props ) => {
   return (
     <div>
-      AboutPage
+      <h1>AboutPage</h1>
     </div>
   )
 }

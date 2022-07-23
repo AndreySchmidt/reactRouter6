@@ -1,7 +1,7 @@
 const NotFoundPage = ( props ) => {
   return (
     <div>
-      AboutPage
+      <h1>Not found Page</h1>
     </div>
   )
 }

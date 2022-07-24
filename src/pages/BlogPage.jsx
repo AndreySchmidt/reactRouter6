@@ -17,6 +17,7 @@ const BlogPage = ( props ) => {
 
   return (
     <div className="container">
+      <Link to = "/blog/new">Add new post</Link>
       <h1>Our news</h1>
       {
         postList.map( ( postItem ) => {

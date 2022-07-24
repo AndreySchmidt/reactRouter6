@@ -6,13 +6,16 @@ import { BlogPage } from './pages/BlogPage'
 import { CreatePostPage } from './pages/CreatePostPage'
 import { EditPostPage } from './pages/EditPostPage'
 import { SinglePage } from './pages/SinglePage'
+import { LoginPage } from './pages/LoginPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 
 import { Layout } from './components/Layout'
+import { RequireAuth } from './hoc/RequireAuth'
+import { AuthProvider } from './hoc/AuthProvider'
 
 const App = (props) => {
   return (
-    <>
+    <AuthProvider>
       <Routes>
         <Route path = "/" element = { <Layout /> }>
           <Route index element = { <HomePage /> } />
@@ -24,11 +27,16 @@ const App = (props) => {
           <Route path = "blog" element = { <BlogPage /> } />
           <Route path = "blog/:id" element = { <SinglePage /> } />
           <Route path = "blog/:id/edit" element = { <EditPostPage /> } />
-          <Route path = "blog/new" element = { <CreatePostPage /> } />
+          <Route path = "blog/new" element = {
+            <RequireAuth>
+              <CreatePostPage />
+            </RequireAuth>
+          } />
+          <Route path = "login" element = { <LoginPage /> } />
           <Route path = "*" element = { <NotFoundPage /> } />
         </Route>
       </Routes>
-    </>
+    </AuthProvider>
   )
 }
 

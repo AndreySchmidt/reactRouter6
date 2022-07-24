@@ -12,7 +12,7 @@ const Layout = ( props ) => {
 
       <Outlet />
 
-      <footer>footer</footer>
+      <footer>My footer is here</footer>
     </>
   )
 }

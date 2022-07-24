@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const BlogPage = ( props ) => {
+
+  // console.log(useLocation())
 
   const [postList, setPostList] = useState([])
 

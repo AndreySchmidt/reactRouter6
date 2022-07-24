@@ -19,7 +19,12 @@ const App = (props) => {
       <Routes>
         <Route path = "/" element = { <Layout /> }>
           <Route index element = { <HomePage /> } />
-          <Route path = "about" element = { <AboutPage /> } />
+          /* <Route path = "about/*" element = { <AboutPage /> } />
+          звездочка нужна при реализации вложенного роута в другом компоненте, за пределами этого файла */
+          <Route path = "about" element = { <AboutPage /> } >
+            <Route path = "contacts" element = { <p>Our contacts are here</p> } />
+            <Route path = "team" element = { <p>Our team is great</p> } />
+          </Route>
           <Route path = "about-us" element = {
             /* С целью переадресации, можно использовать специальный элемент */
             <Navigate  to = "/about" replace /* replace чтобы не сохранять в истории этот адрес */ />
